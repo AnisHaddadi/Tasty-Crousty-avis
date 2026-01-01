@@ -569,6 +569,17 @@
                 min-height: 90vh;
             }
 
+            /* Décaler le fond vers la gauche sur mobile */
+            .hero-section::before {
+                left: -60%;
+                transform: translateX(-10%);
+            }
+
+            .hero-section::after {
+                right: -40%;
+                transform: translateX(10%);
+            }
+
             /* Réduire les animations sur mobile pour économiser la batterie */
             .hero-section::before,
             .hero-section::after {
