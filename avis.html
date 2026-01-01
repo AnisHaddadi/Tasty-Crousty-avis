@@ -471,7 +471,7 @@
         }
 
         .rating-star {
-            font-size: 3.5rem;
+            font-size: 4rem;
             background: none;
             border: none;
             color: rgba(0, 0, 0, 0.2);
@@ -492,6 +492,20 @@
         .rating-star:hover {
             color: #FFD700;
             transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            .rating-star {
+                font-size: 2rem;
+            }
+
+            .rating-star:hover {
+                transform: none;
+            }
+
+            .rating-stars {
+                gap: 2px;
+            }
         }
 
         .rating-btn {
