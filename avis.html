@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<!-- Dernière mise à jour: 25/12/2025 -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Avis clients - Découvrez les témoignages de nos clients satisfaits.">
+    <title>Avis Clients</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray-light: #f5f5f7;
+            --color-gray: #86868b;
+            --color-gray-dark: #1d1d1f;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== ANIMATION D'ENTRÉE ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-black);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        /* ===== ANIMATION COULEURS ===== */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes blobMove {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        @keyframes blobMove2 {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(-40px, 30px) scale(0.9);
+            }
+            66% {
+                transform: translate(50px, -30px) scale(1.1);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        @keyframes blobMove3 {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(20px, 40px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, -20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FFB6C1 0%, #87CEEB 50%, #FFB6C1 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            will-change: background-position;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 182, 193, 0.6) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(135, 206, 235, 0.6) 0%, transparent 50%);
+            animation: blobMove 15s ease-in-out infinite;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 60% 30%, rgba(135, 206, 235, 0.5) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 70%, rgba(255, 182, 193, 0.5) 0%, transparent 50%);
+            animation: blobMove2 20s ease-in-out infinite;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .hero-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-black);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.3px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .hero-btn:hover {
+            background: var(--color-white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .hero-btn:focus {
+            outline: none;
+        }
+
+        /* ===== SECTION AVIS ===== */
+        .avis-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--color-black);
+            letter-spacing: -1px;
+        }
+
+        /* ===== CARROUSEL ===== */
+        .carousel-wrapper {
+            position: relative;
+            margin: 2rem 0 1rem;
+            overflow: hidden;
+            padding: 1rem 0;
+        }
+
+        .carousel-container {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 1rem 0;
+            cursor: grab;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        .carousel-container:active {
+            cursor: grabbing;
+        }
+
+        @media (hover: none) {
+            .carousel-container {
+                cursor: default;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+
+        .avis-card {
+            flex: 0 0 calc(33.333% - 1.33rem);
+            background: var(--color-white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .avis-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .avis-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--color-black);
+        }
+
+        .star-icon {
+            color: #FFD700;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+        }
+
+        .avis-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-gray-dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .avis-author {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            font-weight: 500;
+        }
+
+        /* ===== CONTROLES CARROUSEL ===== */
+        .carousel-controls {
+            display: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 3rem;
+            padding: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--color-black);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dot:hover {
+            background: rgba(0, 0, 0, 0.25);
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background: transparent;
+            border-color: var(--color-black);
+        }
+
+        .dot.active::before {
+            width: 8px;
+            height: 8px;
+        }
+
+        /* ===== MODULE ÉTOILES ===== */
+        .rating-section {
+            max-width: 600px;
+            margin: 1.5rem auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--color-gray-light);
+            border-radius: 32px;
+        }
+
+        .rating-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+            letter-spacing: -0.5px;
+        }
+
+        .rating-subtitle {
+            font-size: 1rem;
+            color: var(--color-gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .rating-star {
+            font-size: 2.5rem;
+            background: none;
+            border: none;
+            color: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+            line-height: 1;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .rating-star.active {
+            color: #FFD700;
+        }
+
+        .rating-star:hover {
+            color: #FFD700;
+            transform: scale(1.15);
+        }
+
+        .rating-btn {
+            background: var(--color-black);
+            color: var(--color-white);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .rating-btn:hover:not(:disabled) {
+            background: var(--color-gray-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .rating-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .rating-info {
+            display: block;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--color-gray);
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-gray-light);
+            padding: 4rem 2rem 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .avis-card {
+                flex: 0 0 calc(50% - 1rem);
+            }
+
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 7vw, 5rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 4vw, 3rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero-section {
+                padding: 5rem 1.5rem 3rem;
+                min-height: 90vh;
+            }
+
+            /* Réduire les animations sur mobile pour économiser la batterie */
+            .hero-section::before,
+            .hero-section::after {
+                animation-duration: 25s;
+            }
+
+            .hero-section {
+                animation-duration: 12s;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 6vw, 4rem);
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+                margin-bottom: 2rem;
+            }
+
+            .hero-btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .avis-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .avis-card {
+                flex: 0 0 100%;
+                padding: 2rem 1.5rem;
+                margin: 0 auto;
+                max-width: 90%;
+                min-height: auto;
+            }
+
+            .carousel-container {
+                gap: 1.5rem;
+                padding: 0.5rem 0;
+                justify-content: flex-start;
+                scroll-snap-type: x mandatory;
+            }
+
+            .carousel-wrapper {
+                overflow: hidden;
+                position: relative;
+            }
+
+            .avis-card {
+                scroll-snap-align: center;
+            }
+
+            .carousel-wrapper {
+                padding: 1rem 0;
+            }
+
+            .carousel-dots {
+                margin-top: 2rem;
+                padding: 0.5rem;
+                gap: 0.4rem;
+            }
+
+            .rating-section {
+                padding: 3rem 1.5rem;
+                margin: 1rem auto;
+            }
+
+            .rating-title {
+                font-size: 1.6rem;
+            }
+
+            .rating-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .rating-star {
+                font-size: 2rem;
+                gap: 8px;
+            }
+
+            .rating-btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .footer {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 4rem 1rem 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                width: auto;
+                min-width: 200px;
+            }
+
+            /* Désactiver les animations complexes sur très petits écrans */
+            .hero-section::before,
+            .hero-section::after {
+                animation: none;
+                opacity: 0.5;
+            }
+
+            .avis-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .avis-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+
+            .avis-text {
+                font-size: 0.95rem;
+            }
+
+            .rating-section {
+                padding: 2.5rem 1rem;
+                margin: 1rem auto;
+                border-radius: 24px;
+            }
+
+            .rating-star {
+                font-size: 1.8rem;
+                gap: 6px;
+            }
+
+            .carousel-dots {
+                gap: 0.4rem;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .dot.active::before {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        /* ===== ANIMATIONS SCROLL ===== */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Tasty Crousty</h2>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="accueil">
+        <h1 class="hero-title fade-in-up">Tasty Crousty</h1>
+        <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s;">Découvrez les témoignages authentiques de nos clients satisfaits.</p>
+        <a href="#rating" class="hero-btn fade-in-up" style="animation-delay: 0.4s;" onclick="event.preventDefault(); document.getElementById('rating').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Laisser un avis</a>
+    </section>
+
+    <!-- Section Avis -->
+    <section class="avis-section scroll-animate" id="avis">
+        <h2 class="section-title">Ce que disent nos clients</h2>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel-container" id="carousel">
+                <!-- Avis 1 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Excellent, l'accueil était chaleureux et ambiant. Je suis impressionné j'ai reçu ma commande en 8 secondes chrono. Première fois que ma commande est aussi rapide. Je pense que je sais où je vais dépenser mon argent toute l'année. Vendeur très gentil et respectueux !"</p>
+                    <p class="avis-author">— Dan Omaly Tung Kasongo</p>
+                </article>
+
+                <!-- Avis 2 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Très bon comme les autres Tasty Crousty ! Allez manger, vous ne serez pas déçu. La qualité est toujours au rendez-vous, que ce soit pour le poulet croustillant, les frites ou les sauces. Un restaurant que je recommande vivement à tous les amateurs de bonne nourriture rapide."</p>
+                    <p class="avis-author">— Haouas Abderhamane</p>
+                </article>
+
+                <!-- Avis 3 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Rien à dire, accueillant, souriant, propre, et super bon ! L'équipe est toujours de bonne humeur et le restaurant est impeccable. Les plats sont délicieux et généreux. Une adresse que je fréquente régulièrement et que je recommande sans hésitation."</p>
+                    <p class="avis-author">— Isc Marjo</p>
+                </article>
+
+                <!-- Avis 4 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Excellent, je me suis régalé ! La qualité des produits est remarquable, tout est frais et bien préparé. Les portions sont généreuses et le rapport qualité-prix est excellent. Je reviendrai certainement très bientôt."</p>
+                    <p class="avis-author">— samo sam</p>
+                </article>
+
+                <!-- Avis 5 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"C'est incroyable, venez manger ! Vous ne le regretterez pas. L'ambiance est conviviale, le service est rapide et efficace, et surtout la nourriture est délicieuse. Un vrai régal pour les papilles !"</p>
+                    <p class="avis-author">— Mahmoud Ait ouaret</p>
+                </article>
+
+                <!-- Avis 6 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Je suis passé vers 16h, merci au cuisinier qui prépare les commandes, c'était très bon !!! La sauce, le poulet, le riz, tout était parfait. J'ai été servi très rapidement malgré l'affluence. Force au cuisinier ! Un service et une qualité exceptionnels."</p>
+                    <p class="avis-author">— Thomas Bouviers</p>
+                </article>
+
+                <!-- Avis 7 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Rien à dire, c'était excellent, je me suis régalée ! L'accueil au top, ça change des autres restaurants. Le personnel est attentionné et professionnel. Merciiii à vous pour cette belle expérience culinaire !"</p>
+                    <p class="avis-author">— Rachida Tri</p>
+                </article>
+
+                <!-- Avis 8 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Nickel ! Franchement, même en galère, le personnel était souriant et compréhensif. Rien à dire ! Ils ont su gérer la situation avec professionnalisme et bonne humeur. Un service client exemplaire qui mérite d'être souligné."</p>
+                    <p class="avis-author">— Andrea Dsr</p>
+                </article>
+
+                <!-- Avis 9 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Je viens de récupérer 2 barquettes avec mes enfants. Service bienveillant et rapide. Au top merci ! Les enfants ont adoré et moi aussi. Des portions généreuses et une qualité irréprochable. Nous reviendrons très certainement."</p>
+                    <p class="avis-author">— Dorsaf Saidane</p>
+                </article>
+
+                <!-- Avis 10 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Comment vous dire d'y aller les yeux fermés ? L'accueil au top, mais aussi très généreux, impossible de terminer. Tout était de qualité : les ingrédients frais, la préparation soignée, et les saveurs authentiques. Une expérience culinaire mémorable !"</p>
+                    <p class="avis-author">— Kawtar Trirach</p>
+                </article>
+
+                <!-- Avis 11 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Je suis passé manger, franchement c'est très bon, propre, rien à dire, merci pour votre accueil ! Le restaurant est impeccable, l'hygiène est parfaite, et la nourriture est délicieuse. Un établissement qui mérite ses 5 étoiles !"</p>
+                    <p class="avis-author">— Asmae Tahsiouali</p>
+                </article>
+
+                <!-- Avis 12 -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Excellent, le goût, l'aspect, vraiment pas déçu, j'ai vraiment bien aimé !!! Tout était parfait : la présentation soignée, les saveurs authentiques, et la qualité des produits. Une adresse que je recommande vivement à tous !"</p>
+                    <p class="avis-author">— Jihane Es senhaji</p>
+                </article>
+
+                <!-- Avis 13 - Avis supplémentaire élaboré -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Franchement très bonne surprise ! La barquette est super bien remplie, hyper généreuse. La sauce est vraiment bonne et savoureuse. Le riz a une texture un peu particulière, un peu gluant et forme des boules, c'est surprenant au début, mais finalement c'est délicieux. Une expérience gustative unique !"</p>
+                    <p class="avis-author">— Client satisfait</p>
+                </article>
+
+                <!-- Avis 14 - Avis supplémentaire élaboré -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Service exceptionnel et qualité irréprochable ! L'équipe est toujours souriante et à l'écoute. Les plats sont préparés avec soin et les ingrédients sont frais. Un restaurant qui allie rapidité, qualité et convivialité. Je recommande sans hésitation !"</p>
+                    <p class="avis-author">— Client régulier</p>
+                </article>
+
+                <!-- Avis 15 - Avis supplémentaire élaboré -->
+                <article class="avis-card">
+                    <div class="stars">
+                        <span class="star-icon">★★★★★</span>
+                    </div>
+                    <p class="avis-text">"Une adresse incontournable pour les amateurs de bonne cuisine rapide ! Les portions sont généreuses, les prix sont raisonnables, et surtout la qualité est toujours au rendez-vous. L'accueil chaleureux et le service rapide font de ce restaurant un endroit où il fait bon revenir."</p>
+                    <p class="avis-author">— Amateur de bonne cuisine</p>
+                </article>
+            </div>
+
+            <div class="carousel-dots" id="dots"></div>
+            </div>
+        </section>
+
+    <!-- Module Évaluation -->
+    <section class="rating-section scroll-animate" id="rating">
+        <h3 class="rating-title">Laissez votre avis</h3>
+        <p class="rating-subtitle">Partagez votre expérience avec nous</p>
+
+        <div class="rating-stars" role="radiogroup" aria-label="Notez notre service">
+            <button class="rating-star" data-value="1" aria-label="1 étoile">★</button>
+            <button class="rating-star" data-value="2" aria-label="2 étoiles">★</button>
+            <button class="rating-star" data-value="3" aria-label="3 étoiles">★</button>
+            <button class="rating-star" data-value="4" aria-label="4 étoiles">★</button>
+            <button class="rating-star" data-value="5" aria-label="5 étoiles">★</button>
+            </div>
+
+        <button class="rating-btn" id="sendRating" disabled>Continuer</button>
+
+        <small class="rating-info">
+            Votre avis nous aide à améliorer nos services.
+            </small>
+        </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+            <div class="footer-content">
+            <p class="footer-text">&copy; 2026 Tasty Crousty. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== ANIMATION D'ENTRÉE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in');
+            fadeElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // ===== ANIMATION AU SCROLL =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animation des cartes du carrousel
+                    if (entry.target.id === 'avis') {
+                        const cards = entry.target.querySelectorAll('.avis-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 100);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== CARROUSEL MODERNE =====
+        const carousel = document.getElementById('carousel');
+        const dotsContainer = document.getElementById('dots');
+        
+        let currentIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let autoPlayInterval;
+
+        function getCardsPerView() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        let cardsPerView = getCardsPerView();
+        const totalCards = document.querySelectorAll('.avis-card').length;
+        let totalSlides = Math.ceil(totalCards / cardsPerView);
+
+        // Limiter les dots à 4 maximum
+        const maxDots = 4;
+        const dotsToShow = Math.min(totalSlides, maxDots);
+
+        // Créer les dots (maximum 4)
+        for (let i = 0; i < dotsToShow; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            // Calculer l'index réel pour naviguer
+            const realIndex = Math.floor((i / dotsToShow) * totalSlides);
+            dot.addEventListener('click', () => goToSlide(realIndex));
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateCarousel() {
+            const cardWidth = carousel.querySelector('.avis-card').offsetWidth;
+            const gap = window.innerWidth < 768 ? 24 : 32;
+            let translateX;
+            
+            // Sur mobile, centrer une seule carte à la fois
+            if (window.innerWidth < 768) {
+                const containerWidth = carousel.parentElement.offsetWidth;
+                const cardOffset = currentIndex * (cardWidth + gap);
+                translateX = -(cardOffset - (containerWidth - cardWidth) / 2);
+            } else {
+                translateX = -(currentIndex * (cardWidth + gap) * cardsPerView);
+            }
+            
+            carousel.style.transform = `translateX(${translateX}px)`;
+            
+            // Mettre à jour les dots (calculer quel dot doit être actif)
+            const activeDotIndex = Math.floor((currentIndex / totalSlides) * dotsToShow);
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeDotIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function nextSlide() {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop
+            }
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1; // Loop
+            }
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        // Drag to scroll
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+            carousel.style.cursor = 'grabbing';
+            carousel.style.transition = 'none';
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                carousel.style.cursor = 'grab';
+                carousel.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }
+        });
+
+        carousel.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                carousel.style.cursor = 'grab';
+                carousel.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            
+            if (Math.abs(walk) > 50) {
+                if (walk > 0) prevSlide();
+                else nextSlide();
+                isDragging = false;
+                carousel.style.cursor = 'grab';
+                carousel.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        }
+
+        // Auto-play
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+
+        // Recalculer au redimensionnement
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                cardsPerView = getCardsPerView();
+                totalSlides = Math.ceil(totalCards / cardsPerView);
+                if (currentIndex >= totalSlides) {
+                    currentIndex = totalSlides - 1;
+                }
+                updateCarousel();
+            }, 250);
+        });
+
+        // Initialisation
+        updateCarousel();
+        startAutoPlay();
+
+        // ===== MODULE ÉTOILES =====
+        const ratingStars = document.querySelectorAll('.rating-star');
+        const sendRatingBtn = document.getElementById('sendRating');
+        const ratingStarsContainer = document.querySelector('.rating-stars');
+        let selectedRating = 0;
+        let hoveredRating = 0;
+
+        const formLink = "https://forms.gle/6jUBcXoScqty7Evq9";
+        const reviewLink = "https://g.page/r/CbY7YZiGpOdcEAE/review";
+
+        function updateRatingStars(value, isHover = false) {
+            ratingStars.forEach(star => {
+                const v = parseInt(star.dataset.value);
+                if (isHover) {
+                    star.classList.toggle('active', v <= value);
+                } else {
+                    star.classList.toggle('active', v <= value);
+                }
+            });
+            sendRatingBtn.disabled = value === 0;
+            if (!isHover) {
+            selectedRating = value;
+            }
+        }
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = parseInt(star.dataset.value);
+                selectedRating = value;
+                updateRatingStars(value, false);
+            });
+
+            star.addEventListener('mouseenter', () => {
+                    const value = parseInt(star.dataset.value);
+                hoveredRating = value;
+                updateRatingStars(value, true);
+            });
+        });
+
+        ratingStarsContainer.addEventListener('mouseleave', () => {
+            if (selectedRating === 0) {
+                ratingStars.forEach(star => star.classList.remove('active'));
+                hoveredRating = 0;
+            } else {
+                updateRatingStars(selectedRating, false);
+                hoveredRating = 0;
+            }
+        });
+
+        sendRatingBtn.addEventListener('click', () => {
+            if (!selectedRating) return;
+            const target = selectedRating <= 3 ? formLink : reviewLink;
+            window.open(target, '_blank');
+        });
+
+        // ===== NAVBAR SCROLL =====
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

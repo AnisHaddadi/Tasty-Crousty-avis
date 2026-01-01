@@ -1,0 +1,13 @@
+{
+  "name": "avis-clients",
+  "version": "1.0.0",
+  "description": "Site d'avis clients avec design Apple",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "keywords": ["avis", "clients", "reviews"],
+  "author": "",
+  "license": "MIT"
+}
+
+
