@@ -567,12 +567,20 @@
             .hero-section {
                 padding: 5rem 1.5rem 3rem;
                 min-height: 90vh;
+                background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 30%, #87CEEB 70%, #FFB6C1 100%);
             }
 
             /* Réduire les animations sur mobile pour économiser la batterie */
-            .hero-section::before,
-            .hero-section::after {
+            .hero-section::before {
+                background: radial-gradient(circle at 30% 40%, rgba(255, 182, 193, 0.8) 0%, transparent 50%),
+                            radial-gradient(circle at 70% 60%, rgba(255, 105, 180, 0.7) 0%, transparent 50%);
                 animation-duration: 25s;
+            }
+
+            .hero-section::after {
+                background: radial-gradient(circle at 60% 30%, rgba(255, 105, 180, 0.6) 0%, transparent 50%),
+                            radial-gradient(circle at 40% 70%, rgba(255, 182, 193, 0.7) 0%, transparent 50%);
+                animation-duration: 20s;
             }
 
             .hero-section {
@@ -682,11 +690,23 @@
                 min-width: 200px;
             }
 
-            /* Désactiver les animations complexes sur très petits écrans */
-            .hero-section::before,
-            .hero-section::after {
+            /* Ajuster les couleurs pour très petits écrans avec plus de rose */
+            .hero-section {
+                background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 40%, #87CEEB 60%, #FFB6C1 100%);
+            }
+
+            .hero-section::before {
+                background: radial-gradient(circle at 30% 40%, rgba(255, 182, 193, 0.9) 0%, transparent 50%),
+                            radial-gradient(circle at 70% 60%, rgba(255, 105, 180, 0.8) 0%, transparent 50%);
                 animation: none;
-                opacity: 0.5;
+                opacity: 0.7;
+            }
+
+            .hero-section::after {
+                background: radial-gradient(circle at 60% 30%, rgba(255, 105, 180, 0.7) 0%, transparent 50%),
+                            radial-gradient(circle at 40% 70%, rgba(255, 182, 193, 0.8) 0%, transparent 50%);
+                animation: none;
+                opacity: 0.6;
             }
 
             .avis-section {
